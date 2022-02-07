@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from tcce.iitju.edu.bd/tcce-schedule/presentation.php?session=3 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 07 Feb 2022 10:06:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>Keynote Speakers</title>
+    <meta charset="utf-8">
+<link rel="shortcut icon" href="img/logos/logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/bootstrap.min.css" rel="stylesheet"/>
+<link href="css/bootstrap-theme.min.css" rel="stylesheet"/>
+<link href="css/font-awesome.min.css" rel="stylesheet"/>
+<link href="css/slicknav.css" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<link href="css/responsive.css" rel="stylesheet"/>
+<link href="css/my-style.css" rel="stylesheet"/>
+<script src="../../ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/myjs.js"></script>    <link href="css/speaker.html" rel="stylesheet"/>
+</head>
+<body>
+<nav class="navbar navbar-default" id="custom_nav">
+    <div class="container-fluid custom_nav_content">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+        </div>
+         <br>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="img/banner.jpg" height="400px" alt="TCCE-2020">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div id="counter_block">
+                <p class="text-center" id="demo_counter"></p>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>
+
+<!-- lOGIN MODAL -->
+<div class="modal fade" id="loginCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="grid">
+
+            <div id="login">
+
+              <h2><span class="fontawesome-lock"></span>Member Log In</h2>
+
+              <form action="https://tcce.iitju.edu.bd/tcce-schedule/connect.php" method="POST">
+
+                <fieldset>
+
+                  <p><label for="email">E-mail address</label></p>
+                  <p><input type="email" name="email" id="email" placeholder="mail@address.com"></p>
+
+                  <p><label for="password">Password</label></p>
+                  <p><input type="password" name="password"></p>
+
+                  <p><input type="submit" value="Sign In"></p>
+
+                </fieldset>
+
+              </form>
+
+            </div>
+
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END LOGIN MODAL --><div class="container">
+
+    <div class="row presentation">
+          <div class="col-md-12">
+              <div class="card">
+                <h4 class="card-header" style="font-size: 16px;font-weight:bold;color:#47A0DD"></h4>
+                <hr style="margin:0;padding:0;">
+                <div class="card-body">
+                    <h5 class="card-title">2nd International Conference on Trends in Computational and Cognitive Engineering(TCCE-2020)</h5>
+                    <p class="card-text"><strong>Paper IDs</strong><span class="card-id"></span></p>
+                    <p class="card-text"><strong>Time</strong><span class="card-time"></span></p>
+                </div>
+              </div>
+          </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 pre-head">
+         <div class="text-container">
+           <h3><i class="fa fa-television" aria-hidden="true"></i> SESSION PRESENTATIONS</h3>
+         </div>
+      </div>
+    </div>
+
+
+    <div class="list-of-presentation">
+
+    </div>
+
+
+    </div>
+</div>
+
+
+
+<div class="container-fluid my_footer">
+    <p>Copyright &copy; TCCE-2020. All rights reserved.</p>
+    <!--<ul class="list-inline">
+        <li>
+            <a href="#">Privacy</a>
+        </li>
+        <li>
+            <a href="#">Terms</a>
+        </li>
+        <li>
+            <a href="#">FAQ</a>
+        </li>
+    </ul>-->
+</div>
+</body>
+
+
+
+<script type="text/javascript">
+
+
+    var sessionID=3;
+    var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        var myObj = JSON.parse(this.responseText);
+
+        var session=3;
+          for(var i in myObj){
+              if(myObj[i].session_ID == sessionID){
+
+                  $(".card-header").text(myObj[i]['session']);
+                  $(".card-title").text(myObj[i]['description']);
+                  $(".card-id").text(myObj[i]['Paper IDs']);
+                  $(".card-time").text(myObj[i]['Time']);
+              }
+
+            }
+        }
+    };
+    xmlhttp.open("GET.html", "json/session.json" , true);
+    xmlhttp.send();
+
+
+</script>
+
+
+
+<script>
+
+
+var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    var myObj = JSON.parse(this.responseText);
+
+    var session=3;
+    for(var i in myObj){
+
+      let html = '';
+
+      if(myObj[i].Session == session){
+        html = '<div class="row">'+
+          '<div class="col-md-12">'+
+              '<div class="card presentation-list">'+
+                '<a href="presentation-video.php?paperID='+myObj[i]['Paper ID']+'&&sessionID='+myObj[i]['Session']+'">'+
+                  '<div class="card-body">'+
+                    '<div class="row">'+
+                      '<div class="col-md-3">'+
+                        '<img src="img/presentation-img/'+myObj[i]['img']+'" class="img-responsive" alt="">'+
+                      '</div>'+
+                      '<div class="col-md-8">'+
+                        '<p class="card-text"><strong>Paper IDs</strong>: '+myObj[i]['Paper ID']+'</p>'+
+                        '<p class="card-text"><strong>Presentation File Name</strong>: '+myObj[i]['Presentation File Name']+'</p>'+
+                        '<p class="card-text"><strong>Reg. Author</strong>: '+myObj[i]['Reg'][' Author']+'</p>'+
+                        '<p class="card-text"><strong>Country</strong>: '+myObj[i]['Country']+'</p>'+
+                      '</div>'+
+                    '</div>'+
+                  '</div>'+
+                '</a>'+
+              '</div>'+
+          '</div>'+
+        '</div>';
+      }
+
+
+      $(".list-of-presentation").append(html);
+
+
+    }
+    }
+};
+xmlhttp.open("GET.html", "json/presentation.json" , true);
+xmlhttp.send();
+
+
+
+</script>
+
+
+
+<!-- Mirrored from tcce.iitju.edu.bd/tcce-schedule/presentation.php?session=3 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 07 Feb 2022 10:06:02 GMT -->
+</html>
